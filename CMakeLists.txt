@@ -4,15 +4,15 @@ cmake_minimum_required(VERSION 2.8.11)
 if (WIN32) # Include win64 platforms
 
   find_package(OpenGL REQUIRED)
-  find_library(GLEW NAMES glew32s PATHS ../../external/lib/x64)
-  find_library(GLFW NAMES glfw3 PATHS ../../external/lib)
+  find_library(GLEW NAMES glew32s PATHS external/lib/x64)
+  find_library(GLFW NAMES glfw3 PATHS external/lib)
 
   set(INCLUDE_DIRS
-     ../../external/include )
+     external/include )
 
   set(LIBRARY_DIRS
     lib
-    ../../external/lib)
+    external/lib)
 
   set(CMAKE_CXX_STANDARD 11)
   set(CMAKE_CXX_FLAGS 
@@ -41,7 +41,7 @@ elseif (APPLE)
 
   set(INCLUDE_DIRS
     /System/Library/Frameworks
-    ../../external/include
+    external/include
     /usr/local/include)
 
   set(CORE ${GLFW} ${GL_LIB})
@@ -56,10 +56,10 @@ elseif (UNIX)
   FIND_PACKAGE(GLEW REQUIRED)
 
   set(INCLUDE_DIRS
-    ../../external/include)
+    external/include)
 
   set(LIBRARY_DIRS
-    ../../external/lib
+    external/lib
     /usr/X11R6/lib
     /usr/local/lib
     lib)
